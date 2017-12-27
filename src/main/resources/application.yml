@@ -1,0 +1,12 @@
+DEBUG: true
+server:
+ port: 8080
+
+logging:
+ file: C:\log\utils\utils.log
+ level:
+    il.co.boj.currencyRates.service: debug
+#Best pattern for log. including method name if needed
+ pattern:
+  console: '%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %C{1}:%M:%L - %m%n'
+  file:    '%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %C{1}:%M:%L - %m%n'
