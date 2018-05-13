@@ -1,4 +1,4 @@
-package il.stempler.main;
+package stempler.ofer.main;
 
 /**
  * Created by ofer on 27/12/17.

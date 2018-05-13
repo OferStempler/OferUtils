@@ -1,0 +1,69 @@
+-----------Windows service install examples----------
+
+====CurrencyRates===
+set JavaExe=c:\Progra~1\Java\jdk1.8.0_25\bin\java
+set CurrencyRates_HOME="D:\Program Files\currencyRates"
+set ENCRYPT=-Djasypt.encryptor.password=master
+set SSL_TRUST=-Djavax.net.ssl.keyStore=D:\cert\Kabala-Client.jks -Djavax.net.ssl.keyStorePassword=Aa123456 -Djavax.net.ssl.trustStore=D:\cert\Kabala-Client.jks -Djavax.net.ssl.trustStorePassword=Aa123456
+set CurrencyRates_JAR=%CurrencyRates_HOME%\currencyRates-0.0.1-SNAPSHOT.jar
+%JavaExe% %ENCRYPT% %SSL_TRUST% -jar %CurrencyRates_JAR%
+=========PRP-REST========
+set JavaExe=c:\Progra~1\Java\jdk1.8.0_25\bin\java
+set PrePaidProxy_ESB_HOME="D:\Program Files\prepaid-proxy-rest"
+set ENCRYPT=-Djasypt.encryptor.password=master
+set SSL_TRUST=-Djavax.net.ssl.keyStore=D:\cert\Kabala-Client.jks -Djavax.net.ssl.keyStorePassword=Aa123456 -Djavax.net.ssl.trustStore=D:\cert\Kabala-Client.jks -Djavax.net.ssl.trustStorePassword=Aa123456
+set PrePaidProxy_ESB_JAR=%PrePaidProxy_ESB_HOME%\prepaidproxy-rest-1.0.jar
+%JavaExe% %ENCRYPT% %SSL_TRUST% -jar %PrePaidProxy_ESB_JAR%
+=========PRP-LAN========
+set JavaExe=c:\Progra~1\Java\jdk1.8.0_25\bin\java
+set PrePaidProxy_ESB_HOME="D:\Program Files\prepaid-proxy-rest"
+set ENCRYPT=-Djasypt.encryptor.password=master
+set SSL_TRUST=-Djavax.net.ssl.keyStore=D:\cert\Kabala-Client.jks -Djavax.net.ssl.keyStorePassword=Aa123456 -Djavax.net.ssl.trustStore=D:\cert\Kabala-Client.jks -Djavax.net.ssl.trustStorePassword=Aa123456
+set PrePaidProxy_ESB_JAR=%PrePaidProxy_ESB_HOME%\prepaidproxy-rest-1.0.jar
+%JavaExe% %ENCRYPT% %SSL_TRUST% -jar %PrePaidProxy_ESB_JAR%
+=========LDP===========
+set SSL_TRUST=-Djavax.net.ssl.trustStore=D:/cert/yosi.jks -Djavax.net.ssl.trustStorePassword=Aa123456 -Djavax.net.ssl.keyStore=D:/cert/yosi.jks -Djavax.net.ssl.keyStorePassword=Aa123456
+set ENCRYPT=-Djasypt.encryptor.password=master
+set JAVA_HOME=c:/Progra~2/Java/jdk1.8.0_25
+set ENCODING=-Dfile.encoding=UTF-8
+dir "d:\Program Files (x86)\LDP-NG.2\LDP-NG2-2.jar"
+
+%JAVA_HOME%/bin/java %SSL_TRUST% %ENCRYPT% %ENCODING% -jar "d:\Program Files (x86)\LDP-NG.2\LDP-NG2-2.jar"
+REM D:/Progra~1/LDP-NG.2/LDP-NG2-2.jar
+========MongoDb service=
+c:\PROGRA~2\MongoDB\Server\3.2\bin\mongod.exe  --port 27017 --storageEngine=mmapv1 --dbpath c:\mongoDB-Db
+
+-----------Linux (Unix) service install examples----------
+
+*nohup will keep the job running on background and will not terminate it after leaving the shell
+** & operator in the end of a sentence command execute the command in th background
+===========LDP==========
+export LDPNG2_HOME=/opt/LDP-NG2
+export JAVA_HOME=/usr/java/jre1.8.0_25
+export JAVA=${JAVA_HOME}/bin/java
+export TRUST_KEYS="-Djavax.net.ssl.keyStore=/opt/LDP-NG2/config/LDP-client.jks -Djavax.net.ssl.keyStorePassword=Boj2017 -Djavax.net.ssl.trustStore=/opt/LDP-NG2/config/LDP-client.jks -Djavax.net.ssl.trustStorePassword=Boj2017"
+export ENCODING=-Dfile.encoding=UTF-8
+export PWD=`pwd`
+cd ${LDPNG2_HOME}
+nohup ${JAVA} ${TRUST_KEYS} ${ENCODING} -jar ${LDPNG2_HOME}/LDP-NG2-2.jar  &
+===========K300==========
+export K300_HOME=/opt/K300
+export JAVA_HOME=/usr/java/jre1.8.0_25
+export JAVA=${JAVA_HOME}/bin/java
+export TRUST_KEYS="-Djavax.net.ssl.keyStore=/opt/LDP-NG2/config/LDP-client.jks -Djavax.net.ssl.keyStorePassword=Boj2017 -Djavax.net.ssl.trustStore=/opt/LDP-NG2/config/LDP-client.jks -Djavax.net.ssl.trustStorePassword=Boj2017"
+export ENCODING=-Dfile.encoding=UTF-8
+export PWD=`pwd`
+cd ${K300_HOME}
+#nohup ${JAVA} ${TRUST_KEYS} ${ENCODING} -jar ${K300_HOME}/K300-NG2-1.0.jar  &
+nohup ${JAVA} ${TRUST_KEYS} ${ENCODING} -Dapplication.id=K300 -jar ${K300_HOME}/K300-NG2-1.0.jar  &
+===========MongoDb==========
+export MONGODB_HOME=/opt/mongodb
+nohup ${MONGODB_HOME}/bin/mongod --port 27017 --storageEngine=mmapv1 --dbpath ${MONGODB_HOME}/data/db &
+case $1 in
+ start)
+  echo "START"
+  ;;
+ stop)
+  echo "STOP"
+  ;;
+esac
