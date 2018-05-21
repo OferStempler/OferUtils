@@ -1,0 +1,17 @@
+Steps:
+1. add jar to pom
+<!-- https://mvnrepository.com/artifact/com.github.ulisesbocchio/jasypt-spring-boot-starter -->
+<dependency>
+   <groupId>com.github.ulisesbocchio</groupId>
+   <artifactId>jasypt-spring-boot-starter</artifactId>
+   <version>1.9</version>
+</dependency>
+
+2. Encrypt wanted password in command line. set wanted password under 'input', set master key under password
+java -cp ~/.m2/repository/org/jasypt/jasypt/1.9.2/jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="admin" password=master algorithm=PBEWithMD5AndDES
+
+3. Put encrypted text in wanted field using ENC() in yml/config file
+password: ENC(2r7r/U551IldTXIjht8aYA==)
+
+4. Alsos add password key as follows:
+jasypt.encryptor.password: master
