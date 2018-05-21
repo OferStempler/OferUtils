@@ -1,0 +1,79 @@
+===Add field entire collection=====
+db.myCollection.update({},{$set: {"nreField":"newValue"}},false,true)
+
+EXAMPLE:
+db.servicesDependencies.update({},{$set: {"enabled":1}},false,true)
+
+====Add multiple document======
+db.getCollection('serviceRegularExpressions').insert(
+[
+
+{
+    "_id" : ObjectId("5a687b6efa2543c7bbdc6487"),
+    "_class" : "il.co.boj.model.entities.ServiceRegularExpressions",
+    "serviceId" : 5,
+    "messageType" : "Response",
+    "element" : "ResponseChannel.Channel.ConsumerCredit.Response.SchumHalvaaTZAMeushar",
+    "regexId" : 20,
+    "enabled" : 0
+},
+
+{
+    "_id" : ObjectId("5a687b6efa2543c7bbdc6488"),
+    "_class" : "il.co.boj.model.entities.ServiceRegularExpressions",
+    "serviceId" : 5,
+    "messageType" : "Response",
+    "element" : "ResponseChannel.Channel.ConsumerCredit.Response.Tkufa",
+    "regexId" : 8,
+    "enabled" : 0
+}
+]
+)
+======Change String to int entire Collection======
+db.serviceRegularExpressions.find().forEach(function(data) {
+    db.serviceRegularExpressions.update({
+        "_id": data._id
+    }, {
+        "$set": {
+            "serviceId":    parseInt(data.serviceId),
+			"enabled":      parseInt(data.enabled),
+			"regexId": parseInt(data.regexId)
+        }
+    });
+})
+===Find field that contains part of a String======
+db.getCollection('services').find({ "serviceName" :{ $regex : ".*wantedString.*"}})
+=== Find two or more conditions=====
+db.getCollection('serviceRegularExpressions').find({$and: [ {"messageType":"Request"}, {"serviceId":5} ]})
+
+====Update a filed in the entire collection where some condtion=========
+db.myCollection.update({"conditionField":"conditionValue""}, {$set: { "changeField":"toValue"}}, false, true)
+
+EXAMPLE - update all docs with serviceId 102 to enabled = 1
+
+db.serviceRegularExpressions.update({"serviceId":102}, {$set: { "enabled":1}}, false, true)
+
+===EXPORT=====
+mongodump -d <database_name> -c<collection> -o <directory_backup>
+===== Export Entire db======
+mongodump -d LDP-NG2-Testing -o C:\Users\ofers\Desktop\WSDL-Gen.json
+===Export specific collection===
+mongoexport -d LDP-NG -c services -o C:\Users\ofers\Desktop\service.json
+===Export specific documents from collection ===
+mongoexport -d LDP-NG -c serviceRegularExpressions -q {'serviceId':37} -o C:\Users\ofers\Desktop\service.json
+mongoexport -d LDP-NG -c schemas -q {'serviceId':37} -o C:\Users\ofers\Desktop\schemas.json
+===IMPORT==
+===For .bson===
+mongorestore -d <database_name> <directory_backup>
+mongorestore -d LDP-NG2-Testing -c regularExpressions C:\Users\ofers\Desktop\regex\LDP-NG\regularExpressions.bson
+==Entire db===
+mongorestore -d WSDL-Gen C:\Users\ofers\Desktop\WSDL-Gen.json\LDP-NG2-Testing
+===For Json===
+mongoimport --db VideoChat --collection data --file C:\Users\ofers\Desktop\VideoChatData.json --jsonArray
+mongoimport --db LDP-NG2-Testing --collection serviceRegularExpressions --file C:\Users\ofers\Desktop\service.json
+mongoimport --db LDP-NG2-Testing --collection schemas --file C:\Users\ofers\Desktop\schemas.json
+===Import csv====
+mongoimport -d LDP-NG -c regularExpressions --type csv --file C:\Users\ofers\Desktop\REGULAR_EXPRESSIONS.csv --headerline 
+
+
+
