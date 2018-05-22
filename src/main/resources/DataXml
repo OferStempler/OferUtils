@@ -1,0 +1,117 @@
+<Request>
+
+       <ownershipType>aaa</ownershipType>
+
+       <lastName>bbb</lastName>
+
+       <extraLoanMonthlyAmount>100</extraLoanMonthlyAmount>
+
+       <education>1</education>
+
+       <monthlyReturnDay>1</monthlyReturnDay>
+
+       <extraLoan>string</extraLoan>
+
+       <role>1</role>
+
+       <accountNum>1</accountNum>
+
+       <gender>1</gender>
+
+       <city isArray="true">
+
+       <?xml-multiple?>
+
+              <ctKey>1</ctKey>
+
+              <cityCode>1</cityCode>
+
+              <value>1</value>
+
+       </city>
+
+       <jobSeniority>1</jobSeniority>
+
+       <postalCode>1</postalCode>
+
+       <familyIncome>1</familyIncome>
+
+       <employerName>1</employerName>
+
+       <isApartmentOwner>100</isApartmentOwner>
+
+       <numOfChildren>1</numOfChildren>
+
+       <branch>1</branch>
+
+       <hasCreditCard>1</hasCreditCard>
+
+       <numOfSupporters>1</numOfSupporters>
+
+       <loanBalance>100</loanBalance>
+
+       <number>1</number>
+
+       <isChequeDenied>string</isChequeDenied>
+
+       <identification>1</identification>
+
+       <common>
+
+              <channelName>WOBI</channelName>
+
+       </common>
+
+       <street>1</street>
+
+       <requestId>1</requestId>
+
+       <rentAmount>100</rentAmount>
+
+       <mortgageAmount>1</mortgageAmount>
+
+       <loanPurpose>100</loanPurpose>
+
+       <numOfPayments>100</numOfPayments>
+
+       <personalIncome>1</personalIncome>
+
+       <savings>100</savings>
+
+       <email>1</email>
+
+       <profession>1</profession>
+
+       <programType>1</programType>
+
+       <institutionId>1</institutionId>
+
+       <streetNumber>1</streetNumber>
+
+       <bankRefusalToCredit>string</bankRefusalToCredit>
+
+       <birthDate>1</birthDate>
+
+       <employerCity>
+
+              <ctKey>1</ctKey>
+
+              <cityCode>1</cityCode>
+
+              <value>1</value>
+
+       </employerCity>
+
+       <bankRefusalToCreditDetails>string</bankRefusalToCreditDetails>
+
+       <loanAmount>100</loanAmount>
+
+       <firstName>1</firstName>
+
+       <accountSeniority>1</accountSeniority>
+
+       <detailsOfLoanPurpose>string</detailsOfLoanPurpose>
+
+       <maritalStatus>1</maritalStatus>
+
+</Request>
