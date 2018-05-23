@@ -1,0 +1,29 @@
+sout - systemo,out.println
+
+psvm - private static void main
+
+ctr + Y - delete row
+
+ctr + del - delete to rows end
+
+ctr + alt + H - Show usage
+
+ctr + alt + S - settings
+
+ctr + shift + J - join lines
+
+ctr + shift + f10 - Run/Edit config
+
+ctrl +shift +alt + s - Project structure
+
+ctrl + alt + L - Order code
+
+shift + f6 - Refactor rename
+
+ctrl + alt + a - add to git
+
+ctrl + tab - see all open files/Go back to previous file
+
+ctrl + R - find and replace
+
+alt + arrowKeys - navigate between open classes

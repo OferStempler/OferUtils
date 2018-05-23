@@ -1,0 +1,19 @@
+netstat -tulpn | grep portNum - see service on specific port.
+
+ps -ef | grep someServiceName - service details and status.
+
+kill proccessNum - kills process
+
+kill -9 processNum - kills process
+
+use tab - Autocomplete
+
+tail -f log/pathToloh.log - will tail the log and show it
+
+./ will run from current position
+
+pwd - print wotking directory
+
+mv sourceFolder destFolder
+
+usually apps are put under etc folder
